@@ -2,7 +2,7 @@ function SplitNR(Ulaz,Line, Bazna)
 
 BusSize = length(Ulaz[:,1])
 # Y=YBusSparse(Line)
-Y=YBusFull(Line) #radi vjerovatno tačnije, ali nije sparse
+Y=sparse(YBusFull(Line)) #radi vjerovatno tačnije, ali nije sparse
 G=real.(Y)
 B=imag.(Y)
 bus = Ulaz[:,1]
@@ -115,5 +115,5 @@ while (Eps > 1e-5)
     Eps = DajAbsMaks(M)
 end
 # return J2
-return Tau, U
+return Tau, U, Brojac
 end

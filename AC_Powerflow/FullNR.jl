@@ -3,7 +3,7 @@ function FullNR(Ulaz,Line, Bazna)
 #sljedeci korak kod razvoja ovog programa je da
 BusSize = length(Ulaz[:,1])
 # Y=YBusSparse(Line)
-Y=YBusFull(Line) #radi vjerovatno tačnije, ali nije sparse
+Y=sparse(YBusFull(Line)) #radi vjerovatno tačnije, ali nije sparse
 G=real.(Y)
 B=imag.(Y)
 bus = Ulaz[:,1]
@@ -144,6 +144,6 @@ while (Eps > 1e-5)
     Eps = DajAbsMaks(M)
 
 end
-return Tau,U  #za potrebe testiranja vraca J, inace bi trebalo vratiti
+return Tau,U, Brojac #za potrebe testiranja vraca J, inace bi trebalo vratiti
 
 end
